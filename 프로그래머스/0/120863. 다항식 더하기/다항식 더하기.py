@@ -10,22 +10,21 @@ def solution(polynomial):
         if 'x' in i:
             if len(i) ==1:
                 counter +=1
-            else:
-                i = i.replace('x','')
-                counter += int(i)
+            else:                
+                counter += int(i[:-1])
         else: 
             num += int(i)
 
     
     if counter == 0:
         answer = f'{num}'
-    elif num == 0:
-        if counter == 1:
+    elif counter == 1:
+        if num == 0:
             answer = 'x'
         else:
-            answer = f'{counter}x'
-    elif counter == 1:
-        answer = f'x + {num}'
+            answer = f'x + {num}'
+    elif num == 0:
+        answer = f'{counter}x'
     else:
         answer = f'{counter}x + {num}'
     return answer
